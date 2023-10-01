@@ -18,6 +18,9 @@ public class Publisher {
     private String state;
     private int zip;
 
+    @OneToMany
+    @JoinColumn(name = "Publisher_id")
+    private Set<Book> books = new HashSet<>();
 
     public Publisher() {
     }
@@ -74,14 +77,21 @@ public class Publisher {
         this.zip = zip;
     }
 
-//    public Set<Publisher> getPublishers() {
-//        return publishers;
-//    }
-//
-//    public void setPublishers(Set<Publisher> publishers) {
-//        this.publishers = publishers;
-//    }
+    public String getAddressLine1() {
+        return addressLine1;
+    }
 
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 
     @Override
     public String toString() {
